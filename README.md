@@ -1,3 +1,3 @@
-# mybooks
+# Book Management Application
 
-[Edit in Codeflow ⚡️](https://stackblitz.com/~/github.com/gestok/mybooks)
+[Live Demo](https://my-books-appl.netlify.app/)
