@@ -381,6 +381,7 @@ input[type='number'] {
   bottom: calc(50% - 172px);
 }
 .addWrapper {
+  overflow: hidden;
   pointer-events: auto;
   position: relative;
   right: 0;
