@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MyBooks App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="masthead">
+      <div
+        class="
+          container
+          d-flex
+          justify-content-space-between
+          align-items-center
+          gap-sm
+        "
+      >
+        <a href="/" title="MyBooksApp" class="logo">
+          <h1 class="d-none">MyBooks App</h1>
+          <img
+            width="165"
+            class="user-select-none pe-none"
+            src="https://i.imgur.com/tFS5gHo.png"
+            alt="MyBooks App Logo"
+          />
+        </a>
+        <div id="vitals"></div>
+      </div>
+    </header>
+    <main class="container relative">
+      <div id="books">
+        <div id="reminder">
+          <h2>Frequently Asked Questions</h2>
+          <div class="bullet d-flex flex-column">
+            <span class="q">Is this free?</span>
+            <span class="a">It ain't much, but at least it's free!</span>
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q">Do I need to create an account?</span>
+            <span class="a"
+              >No. Any books added while not logged in will get saved in your
+              browser's local storage. However, to avoid losing your collection
+              in case of a browser's storage reset, it is best to create an
+              account.</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q"
+              >I already added books and I want to register now. Will I have to
+              re-add them?</span
+            >
+            <span class="a"
+              >No. Any books added while not logged in will link to your newly
+              created account.</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q">Is my progress getting saved while logged in?</span>
+            <span class="a"
+              >It wouldn't be wise to bombard database every time you make a
+              change in your collection. Therefore, any change you make while
+              logged in, is getting locally saved. Then, logging out will send
+              the local save and update the database. So be sure to logout once
+              in a while!</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q">Why the book I added has no thumbnail cover?</span>
+            <span class="a"
+              >The thumbnail covers as well as some other meta-info are getting
+              fetched from Google's book database. At first, application uses
+              the book's ISBN to search for the book. If no book cover is found,
+              application is trying again to search for the book using its
+              title. If book cover is still not found, the application will
+              fallback to a default placeholder cover.</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q"
+              >How can I change the image of my profile avatar?</span
+            >
+            <span class="a"
+              >So far, if you created an account using a Gmail email, your
+              profile avatar will be set to your Gmail's profile image. If you
+              registered using anything else but Gmail, you can not change your
+              avatar image. Future updates will include an option to update your
+              avatar's image.</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q">What are Rankings?</span>
+            <span class="a"
+              >Rankings is a gamification page that displays all registered
+              users as well as their collection and read count.</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q">I found a bug. How can I contact you?</span>
+            <span class="a"
+              >You can contact the creator of this application by email at
+              <a href="mailto:giorgos.cho@hotmail.com" title="email"
+                >giorgos.cho@hotmail.com</a
+              >.</span
+            >
+          </div>
+          <div class="bullet d-flex flex-column">
+            <span class="q"
+              >I really liked this application. Can I buy you a coffee?</span
+            >
+            <span class="a"
+              >If you found this application helpful and want to show your
+              appreciation, you can donate via paypal to the email
+              <a href="mailto:giorgos.cho@hotmail.com" title="email"
+                >giorgos.cho@hotmail.com</a
+              >
+              or literally buy me a coffee (email me to find out where to ship
+              it).</span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="add">
+      <div class="container relative">
+        <div class="addWrapper">
+          <div
+            class="
+              btnWrapper
+              d-flex
+              justify-content-space-between
+              align-items-center
+            "
+          >
+            <h2>Add new book</h2>
+            <button class="btn user-select-none">+</button>
+          </div>
+          <div class="formWrapper">
+            <form
+              id="newbook"
+              class="d-flex flex-column gap-md"
+              action="javascript:void(0);"
+              onsubmit="addBookToLibrary()"
+            >
+              <div class="inputWrapper d-flex relative">
+                <input type="number" name="isbn" id="isbn" required />
+                <label for="isbn">ISBN 13</label>
+              </div>
+              <div class="inputWrapper d-flex relative">
+                <input type="text" name="title" id="title" required />
+                <label for="title">Title</label>
+              </div>
+              <div class="inputWrapper d-flex relative">
+                <input type="text" name="author" id="author" required />
+                <label for="author">Author</label>
+              </div>
+              <input class="d-none" type="checkbox" name="read" id="read" />
+              <label class="checkboxWrapper" for="read">
+                <span>Did you read it?</span>
+                <span class="check"></span>
+              </label>
+              <button type="submit">Add Book</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-storage-compat.js"></script>
+    <script src="general.js"></script>
+    <script src="authentication.js"></script>
+    <script src="vitals.js"></script>
+    <script src="library.js"></script>
+  </body>
+</html>
