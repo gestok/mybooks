@@ -15,7 +15,8 @@
   --radius: 4px;
 }
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 a {
   color: inherit;
@@ -34,16 +35,24 @@ body {
   margin: 0 auto;
 }
 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .d-none {
   display: none;
 }
 .flex-row {
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 .flex-column {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .gap-sm {
   gap: 0.5rem;
@@ -55,13 +64,18 @@ body {
   gap: 2rem;
 }
 .justify-content-space-between {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .align-items-center {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 button {
   cursor: pointer;
+  color: inherit;
 }
 .relative {
   position: relative;
@@ -70,7 +84,10 @@ button {
   pointer-events: none;
 }
 .user-select-none {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .w100 {
   width: 100%;
@@ -113,6 +130,8 @@ input[type='number'] {
   background: var(--c-overlay);
   visibility: visible;
   opacity: 1;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   z-index: 10;
 }
@@ -120,7 +139,8 @@ input[type='number'] {
 #masthead {
   border-bottom: solid 1px var(--c-border);
   background: var(--c-glass);
-  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
   z-index: 9;
@@ -128,9 +148,15 @@ input[type='number'] {
 #masthead .logo {
   margin: var(--i-padding) 0;
 }
+#masthead .logo img {
+  max-width: 165px;
+  width: 100%;
+}
 #profile .details {
   font-size: 80%;
-  align-items: end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 #profile .details .logout {
   background: none;
@@ -151,15 +177,20 @@ input[type='number'] {
   min-width: 304px;
   max-width: 304px;
   min-height: 240px;
+  display: -ms-grid;
   display: grid;
   gap: 1rem;
   justify-items: center;
-  align-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: var(--box-shadow);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   border-bottom: solid 3px var(--c-border);
   border-radius: var(--radius);
   z-index: 11;
@@ -189,7 +220,8 @@ input[type='number'] {
 }
 #modal .notice {
   font-size: 80%;
-  justify-self: end;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 #modal .notice a {
   color: var(--c-primary);
@@ -202,7 +234,8 @@ input[type='number'] {
   padding: var(--i-padding);
   cursor: text;
   outline: 0;
-  touch-action: none;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 .inputWrapper input:focus {
   border: solid 2px var(--c-primary);
@@ -214,9 +247,18 @@ input[type='number'] {
   position: absolute;
   left: 4px;
   top: 7px;
-  user-select: none;
-  transform-origin: left;
-  transform: scale(1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 .inputWrapper input:focus + label,
@@ -224,22 +266,35 @@ input[type='number'] {
   background: var(--c-body-bg);
   top: -14px;
   left: 8px;
-  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
 }
 .inputWrapper input:focus + label {
   color: var(--c-primary);
 }
 .checkboxWrapper {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: var(--i-padding);
   border: solid 1px var(--c-border);
   border-radius: 2px;
   color: var(--c-border);
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 .checkboxWrapper .check {
@@ -248,6 +303,8 @@ input[type='number'] {
   background: var(--c-border);
   border-radius: 2px;
   position: relative;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 .checkboxWrapper .check::before {
@@ -259,12 +316,20 @@ input[type='number'] {
   top: 0;
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--c-text);
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 #read:checked + .checkboxWrapper {
@@ -282,6 +347,7 @@ input[type='number'] {
  * Buttons
  */
 .btn {
+  color: var(--c-text);
   border: unset;
   background: unset;
   padding: 8px var(--o-padding);
@@ -293,7 +359,6 @@ input[type='number'] {
   background: var(--c-body-bg);
 }
 .btn.secondary {
-  color: var(--c-text);
   background: var(--c-primary);
 }
 .btn.bordered {
@@ -307,6 +372,8 @@ input[type='number'] {
   position: fixed;
   bottom: 4rem;
   width: 100%;
+  -webkit-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
   transition: all 0.6s ease;
   pointer-events: none;
 }
@@ -317,18 +384,28 @@ input[type='number'] {
   pointer-events: auto;
   position: relative;
   right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   max-width: 80px;
   height: 100%;
   max-height: 80px;
   margin-left: auto;
   background: var(--c-body-bg);
-  box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
   border-bottom: solid 3px var(--c-border);
   border-radius: 50%;
+  -webkit-transition: all 0.3s ease, max-width 0.6s ease, max-height 0.6s ease;
+  -o-transition: all 0.3s ease, max-width 0.6s ease, max-height 0.6s ease;
   transition: all 0.3s ease, max-width 0.6s ease, max-height 0.6s ease;
 }
 .center .addWrapper {
@@ -348,6 +425,8 @@ input[type='number'] {
   opacity: 0;
   visibility: hidden;
   white-space: nowrap;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .center .addWrapper h2 {
@@ -365,11 +444,18 @@ input[type='number'] {
   max-height: 28px;
 }
 .addWrapper .btn {
+  color: var(--c-text);
   overflow: hidden;
   padding: 0 0 4px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 80px;
   width: 80px;
   border-radius: 50%;
@@ -377,10 +463,14 @@ input[type='number'] {
   font-weight: 400;
   opacity: 1;
   visibility: visible;
+  -webkit-transition: all 1.4s ease, width 0s, height 0s, font-weight 0s;
+  -o-transition: all 1.4s ease, width 0s, height 0s, font-weight 0s;
   transition: all 1.4s ease, width 0s, height 0s, font-weight 0s;
 }
 .center .addWrapper .btn {
-  transform: translateX(18px) rotate(1395deg) scale(0.5);
+  -webkit-transform: translateX(18px) rotate(1395deg) scale(0.5);
+      -ms-transform: translateX(18px) rotate(1395deg) scale(0.5);
+          transform: translateX(18px) rotate(1395deg) scale(0.5);
   width: 54px;
   height: 54px;
   font-weight: 300;
@@ -392,6 +482,8 @@ input[type='number'] {
   max-height: 0px;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .center .addWrapper .formWrapper {
@@ -431,6 +523,7 @@ input[type='number'] {
   color: var(--c-card-text);
 }
 #books {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   grid-gap: 2.6rem 2rem;
@@ -441,19 +534,29 @@ input[type='number'] {
   margin-top: 20px;
   background: var(--c-body-bg);
   height: 270px;
-  box-shadow: -1px 3px 8px -1px #0000001a;
+  -webkit-box-shadow: -1px 3px 8px -1px #0000001a;
+          box-shadow: -1px 3px 8px -1px #0000001a;
   border-radius: var(--radius);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 0 0 20px 20px;
 }
 .bookcard.read {
+  background: -o-linear-gradient(50deg, var(--c-body-bg) 75%, #4caf509c 150%);
   background: linear-gradient(40deg, var(--c-body-bg) 75%, #4caf509c 150%);
 }
 .bookcard.notread {
+  background: -o-linear-gradient(50deg, var(--c-body-bg) 75%, #ff57229c 150%);
   background: linear-gradient(40deg, var(--c-body-bg) 75%, #ff57229c 150%);
 }
 .bookcard .contentWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border-bottom: 1px solid var(--c-border);
   position: relative;
@@ -463,10 +566,14 @@ input[type='number'] {
   height: 190px;
   margin-top: -18px;
   border-radius: 2px;
-  box-shadow: 0px 1px 7px 2px #c7c9d3;
+  -webkit-box-shadow: 0px 1px 7px 2px #c7c9d3;
+          box-shadow: 0px 1px 7px 2px #c7c9d3;
   border-bottom: 1px solid #dcddde;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin-bottom: 22px;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
   transition: 0.3s ease;
 }
 .bookcard .contentWrapper .cardContent {
@@ -477,7 +584,8 @@ input[type='number'] {
 }
 .bookcard .contentWrapper .cardContent .title {
   font-weight: 500;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -495,7 +603,8 @@ input[type='number'] {
   color: var(--c-card-text);
   font-size: 13px;
   margin: 10px 12px 0;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
