@@ -76,6 +76,7 @@ body {
 button {
   cursor: pointer;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 .relative {
   position: relative;
