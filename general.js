@@ -1,11 +1,11 @@
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_ID
+  apiKey: "AIzaSyB_D7VxB7l9MVDB40AiCa0mIDSf_qQytXs",
+  authDomain: "mybooks-application.firebaseapp.com",
+  projectId: "mybooks-application",
+  storageBucket: "mybooks-application.appspot.com",
+  messagingSenderId: "818809500062",
+  appId: "1:818809500062:web:5916ed7d935a969ef8668f"
 };
 const app = firebase.initializeApp(firebaseConfig);
 const auth = app.auth();
